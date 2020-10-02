@@ -17,27 +17,7 @@
             emailjs.init("user_C7R5tXZXaXoKY7XYYljAA");
         })();
     </script>
-    <script>
-    function $(id) { return document.getElementById($) }
-    function sendEmail(){
-        emailjs.send('service_883d6vg', 'template_zzjp1zw',{
-	    nombre: $("form_cupon_cupon_nombre").value,
-            telf: $("form_cupon_cupon_telefono").value,
-            email: $("form_cupon_cupon_email").value,
-            prov: $("provinciaid").value,
-            CP: $("form_cupon_cupon_codigopostal").value,
-            edad:$("edad").value,
-            estudios: $("estudiosid").value,
-            pais: $("nacionalidad").value,
-            mensaje: $("w3review").innerHTML})
-        .then(function(response) {
-           console.log('SUCCESS!', response.status, response.text);
-	   $("enviar_btn").innerHTML="Enviado"	
-        }, function(error) {
-           console.log('FAILED...', error);
-        });
-    }
-    </script>
+   
     <div class="menu">
         <button type="button" onclick="location.href='./index.html';"><img width="20px" height="18px" src="Images/homeicon.png"></img>
         <button type="button" onclick="location.href='./formacion.html';">Formación
@@ -65,7 +45,7 @@
             <h1>Envíenos un mensaje</h1>
             <h2>Puede emplear el formulario para consultar cualquier duda o solicitar una inscripción. Nos pondremos en contacto
                 mediante correo electrónico o teléfono.</h2>
-            <form id="form_cupon" name="form_cupon" onsubmit="return setForwardUrl($(this).attr('id'));" method="post">
+            <form>
                 <div class="cuerpo-cupon text-center">
 
                     <input type="hidden" name="forward_url" value="" id="forward_url">
@@ -75,14 +55,14 @@
                     <input type="hidden" name="idcurso" value="COA" id="form_cupon_idcurso">
                     <input type="hidden" name="requeridos[]" value="nombre">
                     <div class="form-group" data-role="fieldcontain">
-                        <input type="text" placeholder="Nombre" name="nombre" id="form_cupon_cupon_nombre" value=""
+                        <input type="text" placeholder="Nombre*" name="nombre" id="form_cupon_cupon_nombre" value=""
                             class="form-control" title="Ups, nos gustaría saber tu nombre"
                             x-moz-errormessage="Ups, nos gustaría saber tu nombre" maxlength="64" required="">
                     </div>
 
                     <input type="hidden" name="requeridos[]" value="telefono">
                     <div class="form-group" data-role="fieldcontain">
-                        <input type="text" placeholder="Teléfono" name="telefono" id="form_cupon_cupon_telefono"
+                        <input type="text" placeholder="Teléfono*" name="telefono" id="form_cupon_cupon_telefono"
                             value="" class="form-control"
                             title="Ups, necesitamos un teléfono para ponernos en contacto contigo"
                             x-moz-errormessage="Ups, necesitamos un teléfono para ponernos en contacto contigo"
@@ -91,7 +71,7 @@
 
                     <input type="hidden" name="requeridos[]" value="email">
                     <div class="form-group" data-role="fieldcontain">
-                        <input type="email" placeholder="Email" name="email" id="form_cupon_cupon_email" value=""
+                        <input type="email" placeholder="Email*" name="email" id="form_cupon_cupon_email" value=""
                             class="form-control" maxlength="64" required="">
                     </div>
 
@@ -223,25 +203,6 @@
                                 <option value="64">64</option>
                                 <option value="65">65</option>
                             </select>
-                        </div>
-                    </div>
-                    <input type="hidden" name="requeridos[]" value="estudiosid">
-                    <div class="form-group" data-role="fieldcontain">
-                        <div id="cont-estudio">
-                            <div id="divEstudios">
-                                <select name="estudiosid" id="estudiosid" class="campo_fijo_cupon_2 browser-default"
-                                    required="">
-                                    <option value="">-- Nivel de estudios --</option>
-                                    <option value="40">CERTIFICADO DE ESCOLARIDAD</option>
-                                    <option value="41">GRADUADO ESCOLAR</option>
-                                    <option value="42">ESO</option>
-                                    <option value="43">FP GRADO MEDIO</option>
-                                    <option value="44">BACHILLER / COU</option>
-                                    <option value="45">FP GRADO SUPERIOR</option>
-                                    <option value="46">DIPLOMATURA / GRADO</option>
-                                    <option value="47">LICENCIATURA / GRADO</option>
-                                </select>
-                            </div>
                         </div>
                     </div>
                     <input type="hidden" name="requeridos[]" value="nacionalidad">
@@ -503,14 +464,37 @@
                         Asunto/consulta
                     </textarea>
                 </div>
-                <div class="send">
-                    <button id="enviar_btn"
-                    style="color: rgb(60, 137, 201); font-weight: bold;"
-                        onclick="sendEmail()"
-                        type="submit" alt="¡Infórmate ahora!" id="form_cupon_0" class=""
-                        onfocus="this.blur()">Enviar > <i class="fa fa-caret-right"></i></button>
-                </div>
+                <script>
+                    function $(id) { return document.getElementById($) }
+                    function sendEmail(){
+                        emailjs.send('service_883d6vg', 'template_zzjp1zw',{
+                            nombre: document.getElementById('form_cupon_cupon_nombre').value,
+                            telf: document.getElementById('form_cupon_cupon_telefono').value,
+                            mail: document.getElementById('form_cupon_cupon_email').value,
+                            prov: document.getElementById('provinciaid').options[document.getElementById('provinciaid').selectedIndex].text,
+                            CP: document.getElementById('form_cupon_cupon_codigopostal').value,
+                            edad: document.getElementById('edad').value,
+                            pais: document.getElementById('nacionalidad').options[document.getElementById('nacionalidad').selectedIndex].text,
+                            mensaje: document.getElementById('w3review').value
+                        })
+                        .then(function(response) {
+                           console.log('SUCCESS!', response.status, response.text);
+                           document.getElementById('enviar_btn').innerHTML="Enviado"	
+                        }, function(error) {
+                           console.log('FAILED...', error);
+                        });
+                    }
+                    </script>
+                    <div>
+                
+            </div>
             </form>
+            <button id="enviar_btn"
+                    style="color: rgb(60, 137, 201); font-weight: bold; margin: auto; text-align: center; display: flex; margin-top: 0;"
+                    onclick="sendEmail()"
+                    onfocus="this.blur()">
+                    Enviar > 
+            </button>
             <br><br>
 
         </div>
