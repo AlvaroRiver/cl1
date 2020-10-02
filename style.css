@@ -226,8 +226,14 @@ button:focus{
 {
     text-align: justify;
     font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: lighter;
 }
 
+pre{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: lighter ;
+}
 
 .white_section hr{
     margin: 0 auto;
