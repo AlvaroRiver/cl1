@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tus clases de controlador</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+
+    <div class="back"></div>
+    <div id="header_div">
+        <h1 id="title">Prepárate para ser <br>controlador aéreo.</h1>
+        <img id="plane" src="Images/avion.png">
+    </div>
+    
+     
+    <div class="menu">
+        <button type="button" onclick="location.href='./index.html';"><img width="20px" height="18px" src="Images/homeicon.png"></img>
+        <button type="button" onclick="location.href='./formacion.html';">Formación
+        <button type="button" onclick="location.href='./requisitos.html';">Qué necesito
+        <button type="button" onclick="location.href='./about.html';">Sobre nosotros
+        <button type="button" onclick="location.href='./contacto.html';">Inscripción/Contacto ✆
+    </div>
+  
+    <div style="overflow:hidden"><img src="Images/torre.png", class="img_home" onclick="location.href='./formacion.html'"></img></div>
+    <div style="overflow:hidden"><img src="Images/pantalla.png", class="img_home" onclick="location.href='./formacion.html'"></img></div>
+    <div style="overflow:hidden"><img src="Images/profesor.png", class="img_home" onclick="location.href='./about.html'"></img></div>
+
+    <div class="footer">
+        <br>
+        <pre>
+            <span class ="link" onclick="location.href='./contacto.html'">Consultorio</span>    <span class ="link" onclick="location.href='./about.html'">Nosotros</span>    <span class ="link" onclick="location.href='./contacto.html'">Dónde estamos</span> 
+        </pre>
+        <pre><span>contacto@academiacontroladoresbcn.es ✉ </span>    <span>930277054 ✆</span></pre>
+        <br>
+        <span style="margin: auto;" class="link"><img src="Images/aena.png"
+                onclick="location.href='http://www.aena.es/';" width="100px"></span>
+        <pre><br></pre>
+        <span style="margin: auto;" class="link"><img src="Images/enaire.png"
+                onclick="location.href='https://www.enaire.es/home';" width="100px"></span>
+    </div>
+</body>
+<script>
+
+    $(function(){
+         $('#header_div').animate({
+             'grid-column-gap' : '6%',
+             'margin-left': '25%',
+             opacity: '1'
+         }, 1600);
+      });
+  </script>
+</html>
