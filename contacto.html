@@ -72,7 +72,7 @@
                         <div id="cont-provincia">
                             <div id="divProvincia">
                                 <select name="provinciaid" id="provinciaid" class="campo_fijo_cupon_2 browser-default"
-                                    required="" onchange="loadCombo('poblacionesDiv');resetComboCodigosPostales();">
+                                    required="">
                                     <option value="">-- Provincia --</option>
                                     <option value="1">ÁLAVA</option>
                                     <option value="2">ALBACETE</option>
@@ -478,7 +478,7 @@
                 <div class="send">
                     <button
                     style="color: rgb(60, 137, 201); font-weight: bold;"
-                        onclick="dataLayer.push({event: 'boton_cupon', 'codigoCurso': $('#form_cupon_idcurso').val()});"
+                        onclick="sendEmail()"
                         type="submit" alt="¡Infórmate ahora!" id="form_cupon_0" class=""
                         onfocus="this.blur()">Enviar > <i class="fa fa-caret-right"></i></button>
                 </div>
