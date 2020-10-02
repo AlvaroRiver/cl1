@@ -501,6 +501,34 @@
         <span style="margin: auto;" class="link"><img src="Images/enaire.png"
                 onclick="location.href='https://www.enaire.es/home';" width="100px"></span>
     </div>
+		<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+        (function(){
+            emailjs.init("user_C7R5tXZXaXoKY7XYYljAA");
+        })();
+    </script>
+    <script>
+    function $(id) { return document.getElementById($) }
+    function sendEmail(){
+        emailjs.send('service_883d6vg', 'template_zzjp1zw',
+        {nombre: $("form_cupon_cupon_nombre").value,
+            telf: $("form_cupon_cupon_telefono").value,
+            email: $("form_cupon_cupon_email").value,
+            prov: $("provinciaid").value,
+            CP: $("form_cupon_cupon_codigopostal").value,
+            edad:$("edad").value,
+            estudios: $("estudiosid").value,
+            pais: $("nacionalidad").value,
+            mensaje: $("w3review").innerHTML})
+        .then(function(response) {
+           console.log('SUCCESS!', response.status, response.text);
+        }, function(error) {
+           console.log('FAILED...', error);
+        });
+    }
+    </script>
 </body>
 
 </html>
