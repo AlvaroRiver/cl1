@@ -513,15 +513,15 @@
     function $(id) { return document.getElementById($) }
     function sendEmail(){
         emailjs.send('service_883d6vg', 'template_zzjp1zw',
-        {nombre: $("form_cupon_cupon_nombre").value,
-            telf: $("form_cupon_cupon_telefono").value,
-            email: $("form_cupon_cupon_email").value,
-            prov: $("provinciaid").value,
-            CP: $("form_cupon_cupon_codigopostal").value,
-            edad:$("edad").value,
-            estudios: $("estudiosid").value,
-            pais: $("nacionalidad").value,
-            mensaje: $("w3review").innerHTML})
+        {nombre: "alvaro",
+            telf: "123456789",
+            email: "asdsad",
+            prov: "murcia",
+            CP: "31111",
+            edad:"33",
+            estudios: "sdddd",
+            pais: "España",
+            mensaje: "hola que tal"
         .then(function(response) {
            console.log('SUCCESS!', response.status, response.text);
         }, function(error) {
