@@ -83,8 +83,8 @@ body{
 #header_div{
     margin-top: 3vh;
     display: grid;
-    grid-template-columns: auto auto;
-    grid-column-gap: 50%;
+    grid-template-columns: 30% 20%;
+    grid-column-gap: 90%;
     margin-left: 5%;
     margin-bottom: 0;
     justify-content: center;
