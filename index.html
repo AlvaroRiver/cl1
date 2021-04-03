@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,44 +16,110 @@
         <h1 id="title">Prepárate para ser <br>controlador aéreo.</h1>
         <img id="plane" src="Images/avion.png">
     </div>
-    
-     
+
+
     <div class="menu">
-        <button type="button" onclick="location.href='./index.html';"><img width="20px" height="18px" src="Images/homeicon.png"></img>
-        <button type="button" onclick="location.href='./formacion.html';">Formación
-        <button type="button" onclick="location.href='./requisitos.html';">Qué necesito
-        <button type="button" onclick="location.href='./about.html';">Sobre nosotros
-        <button type="button" onclick="location.href='./contacto.html';">Inscripción/<wbr>Contacto ✆
+        <button type="button" onclick="location.href='./index.html';"><img width="20px" height="18px"
+                src="Images/homeicon.png"></img>
+            <button type="button" onclick="location.href='./formacion.html';">Formación
+                <button type="button" onclick="location.href='./requisitos.html';">Qué necesito
+                    <button type="button" onclick="location.href='./about.html';">Sobre nosotros
+                        <button type="button" onclick="location.href='./contacto.html';">Inscripción/<wbr>Contacto ✆
     </div>
-  
-    <div style="overflow:hidden"><img src="Images/torre.png", class="img_home" onclick="location.href='./formacion.html'"></img></div>
-    <div style="overflow:hidden"><img src="Images/pantalla.png", class="img_home" onclick="location.href='./formacion.html'"></img></div>
-    <div style="overflow:hidden"><img src="Images/profesor.png", class="img_home" onclick="location.href='./about.html'"></img></div>
+
+    <div style="overflow:hidden"><img src="Images/torre.png" , class="img_home"
+            onclick="location.href='./formacion.html'"></img></div>
+    <div style="overflow:hidden"><img src="Images/pantalla.png" , class="img_home"
+            onclick="location.href='./formacion.html'"></img></div>
+    <div style="overflow:hidden"><img src="Images/profesor.png" , class="img_home"
+            onclick="location.href='./about.html'"></img></div>
 
     <div class="footer">
         <br>
         <pre>
             <span class ="link" onclick="location.href='./contacto.html'">Consultorio</span>    <span class ="link" onclick="location.href='./about.html'">Nosotros</span>    <span class ="link" onclick="location.href='./contacto.html'">Dónde estamos</span>    <span class ="link" onclick="location.href='./contacto.html'">Aviso legal</span>    <span class ="link" onclick="location.href='./about.html'">Política de privacidad</span>    <span class ="link" onclick="location.href='./contacto.html'">Política de cookies</span>        </pre>
-            <br>
-            <pre><span>contacto@academiacontroladoresbcn.es ✉ </span>    <span>930277054 ✆</span></pre>
+        <br>
+        <pre><span>contacto@academiacontroladoresbcn.es ✉ </span>    <span>930277054 ✆</span></pre>
         <br>
         <span style="margin: auto;" class="link"><img src="Images/aena.png"
                 onclick="location.href='http://www.aena.es/';" width="100px"></span>
         <pre><br></pre>
         <span style="margin: auto;" class="link"><img src="Images/enaire.png"
                 onclick="location.href='https://www.enaire.es/home';" width="100px"></span><br>
-                <pre><span class ="link" onclick="location.href='./legal.html'">Aviso legal</span>    <span class ="link" onclick="location.href='./priv.html'">Política de privacidad</span>    <span class ="link" onclick="location.href='./cookpol.html'">Política de cookies</span></pre>
+        <pre><span class ="link" onclick="location.href='./legal.html'">Aviso legal</span>    <span class ="link" onclick="location.href='./priv.html'">Política de privacidad</span>    <span class ="link" onclick="location.href='./cookpol.html'">Política de cookies</span></pre>
+        <br>
+    </div>
+    <div class="cbanner" id="banner">
+        <br>
+        Este sitio web puede utilizar cookies para mejorar su experiencia de navegación. <span class="link"
+            onclick="location.href='./priv'"><u>Más información</u></span><br><br>
+        <button class="bluebtn" onclick="setCookie()">Aceptar</button>
+        <button class="bluebtn" onclick="document.getElementById('config').style.display='block'">Configurar</button>
+        <button class="bluebtn"> Rechazar</button>
+        <br><br>
+        <div id="config" style="padding: 5px; margin-left: -10%; display: none">
+            <hr><br>
+            <label class="toggle">
+                <pre>                       Cookies técnicas</pre>
                 <br>
+                <input type="checkbox" id="cToggle" />
+                <span class="slider"></span>
+            </label><br>
+            <label class="toggle">
+                <pre>                       Cookies de sesión</pre>
+                <br>
+                <input type="checkbox" id="cToggle" />
+                <span class="slider"></span>
+            </label><br>
+            <button class="bluebtn" style="margin-left: 10%; width: 10%;" onclick="setCookie()">Confirmar</button>
+        </div>
     </div>
 </body>
 <script>
+    $(function () {
+        $('#header_div').animate({
+            'grid-column-gap': '3%',
+            'margin-left': '15%',
+            opacity: '1'
+        }, 1600);
+    });
 
-    $(function(){
-         $('#header_div').animate({
-             'grid-column-gap' : '3%',
-             'margin-left': '15%',
-             opacity: '1'
-         }, 1600);
-      });
-  </script>
+    window.onload = function () { stick() };
+
+    var header = document.getElementById("banner");
+    var sticky = header.offsetTop;
+
+    function stick() {
+        if (getCookie("Acp_cookies") != "")
+        {
+            document.getElementById('cbanner').style.display="none"
+        }
+        else
+            header.classList.add("sticky");
+    }
+
+    function setCookie() {
+        var d = new Date();
+        d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = "Acp_cookies=true;" + expires + ";path=/";
+        document.getElementById('cbanner').style.display="none"
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+</script>
 </html>
