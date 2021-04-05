@@ -86,6 +86,71 @@
                 <pre><span class ="link" onclick="location.href='./legal.html'">Aviso legal</span>    <span class ="link" onclick="location.href='./priv.html'">Política de privacidad</span>    <span class ="link" onclick="location.href='./cookpol.html'">Política de cookies</span></pre>
                 <br>
     </div>
+    <div class="cbanner" id="banner">        <br>
+
+        Este sitio web puede utilizar cookies para mejorar su experiencia de navegación. <span class="link"
+            onclick="location.href='./priv.html'"><u>Más información</u></span><br>
+        <button class="bluebtn" onclick="setCookie()">Aceptar</button>
+        <button class="bluebtn" onclick="document.getElementById('config').style.display='block'">Configurar</button>
+        <button class="bluebtn"> Rechazar</button>
+        <br>
+        <div id="config" style="padding: 5px; margin-left: -10%; display: none">
+            <hr><br>
+            <label class="toggle">
+                <pre>                       Cookies técnicas</pre>
+                <br>
+                <input type="checkbox" id="cToggle" />
+                <span class="slider"></span>
+            </label><br>
+            <label class="toggle">
+                <pre>                       Cookies de sesión</pre>
+                <br>
+                <input type="checkbox" id="cToggle" />
+                <span class="slider"></span>
+            </label><br>
+            <button class="bluebtn" style="margin-left: 10%; width: 10%;" onclick="setCookie()">Confirmar</button>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function () { stick() };
+
+    var header = document.getElementById("banner");
+    var sticky = header.offsetTop;
+
+    function stick() {
+        if (getCookie("Acp_cookies") != "")
+        {
+            document.getElementById('banner').style.display="none"
+        }
+        else
+            header.classList.add("sticky");
+    }
+
+    function setCookie() {
+        var d = new Date();
+        d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = "Acp_cookies=true;" + expires + ";path=/";
+        document.getElementById('banner').style.display="none"
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+</script>
     
     
 </body>
