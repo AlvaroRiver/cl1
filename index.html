@@ -50,13 +50,12 @@
         <br>
     </div>
     <div class="cbanner" id="banner">
-        <br>
         Este sitio web puede utilizar cookies para mejorar su experiencia de navegación. <span class="link"
-            onclick="location.href='./priv'"><u>Más información</u></span><br><br>
+            onclick="location.href='./priv.html'"><u>Más información</u></span><br>
         <button class="bluebtn" onclick="setCookie()">Aceptar</button>
         <button class="bluebtn" onclick="document.getElementById('config').style.display='block'">Configurar</button>
         <button class="bluebtn"> Rechazar</button>
-        <br><br>
+        <br>
         <div id="config" style="padding: 5px; margin-left: -10%; display: none">
             <hr><br>
             <label class="toggle">
@@ -92,7 +91,7 @@
     function stick() {
         if (getCookie("Acp_cookies") != "")
         {
-            document.getElementById('cbanner').style.display="none"
+            document.getElementById('banner').style.display="none"
         }
         else
             header.classList.add("sticky");
@@ -103,7 +102,7 @@
         d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
         var expires = "expires=" + d.toUTCString();
         document.cookie = "Acp_cookies=true;" + expires + ";path=/";
-        document.getElementById('cbanner').style.display="none"
+        document.getElementById('banner').style.display="none"
     }
 
     function getCookie(cname) {
